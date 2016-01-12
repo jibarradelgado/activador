@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SistemasBioxorModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="SistemasBioxorModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="idDomicilio" ColumnName="idDomicilio" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="ApellidoCliente" ColumnName="ApellidoCliente" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClienteSistema">
+      <EntityTypeMapping TypeName="SistemasBioxorModel.ClienteSistema">
+        <MappingFragment StoreEntitySet="ClienteSistema">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="idClienteSistema" ColumnName="idClienteSistema" />
+          <ScalarProperty Name="idSistema" ColumnName="idSistema" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="NumeroSerie" ColumnName="NumeroSerie" />
+          <ScalarProperty Name="MACAdress" ColumnName="MACAdress" />
+          <ScalarProperty Name="FechaPeticion" ColumnName="FechaPeticion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cMunicipio">
+      <EntityTypeMapping TypeName="SistemasBioxorModel.cMunicipio">
+        <MappingFragment StoreEntitySet="cMunicipio">
+          <ScalarProperty Name="idcMunicipio" ColumnName="idcMunicipio" />
+          <ScalarProperty Name="iddEstado" ColumnName="iddEstado" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="CabeceraMunicipal" ColumnName="CabeceraMunicipal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dEstado">
+      <EntityTypeMapping TypeName="SistemasBioxorModel.dEstado">
+        <MappingFragment StoreEntitySet="dEstado">
+          <ScalarProperty Name="iddEstado" ColumnName="iddEstado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Domicilio">
+      <EntityTypeMapping TypeName="SistemasBioxorModel.Domicilio">
+        <MappingFragment StoreEntitySet="Domicilio">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+          <ScalarProperty Name="idDomicilio" ColumnName="idDomicilio" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="NoInterior" ColumnName="NoInterior" />
+          <ScalarProperty Name="NoExterior" ColumnName="NoExterior" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sistema">
+      <EntityTypeMapping TypeName="SistemasBioxorModel.Sistema">
+        <MappingFragment StoreEntitySet="Sistema">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="idSistema" ColumnName="idSistema" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cEstado">
+      <EntityTypeMapping TypeName="SistemasBioxorModel.cEstado">
+        <MappingFragment StoreEntitySet="cEstado">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idcEstado" ColumnName="idcEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwClienteSistema">
+      <EntityTypeMapping TypeName="SistemasBioxorModel.vwClienteSistema">
+        <MappingFragment StoreEntitySet="vwClienteSistema">
+          <ScalarProperty Name="FechaPeticion" ColumnName="FechaPeticion" />
+          <ScalarProperty Name="MACAdress" ColumnName="MACAdress" />
+          <ScalarProperty Name="NumeroSerie" ColumnName="NumeroSerie" />
+          <ScalarProperty Name="idEstadoClienteSistema" ColumnName="idEstadoClienteSistema" />
+          <ScalarProperty Name="idClienteSistema" ColumnName="idClienteSistema" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="ApellidoCliente" ColumnName="ApellidoCliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="idEstadoCliente" ColumnName="idEstadoCliente" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="NombreSistema" ColumnName="NombreSistema" />
+          <ScalarProperty Name="idEstadoSistema" ColumnName="idEstadoSistema" />
+          <ScalarProperty Name="idSistema" ColumnName="idSistema" />
+          <ScalarProperty Name="EstadoCliente" ColumnName="EstadoCliente" />
+          <ScalarProperty Name="EstadoSistema" ColumnName="EstadoSistema" />
+          <ScalarProperty Name="EstadoClienteSistema" ColumnName="EstadoClienteSistema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

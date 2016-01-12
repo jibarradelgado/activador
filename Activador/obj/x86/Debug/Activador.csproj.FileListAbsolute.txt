@@ -1,0 +1,14 @@
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\bin\Debug\Activador.exe
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\bin\Debug\Activador.pdb
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\Activador.FrmPrincipal.resources
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\Activador.Properties.Resources.resources
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\Activador.Utilidades.FrmFormulario.resources
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\Activador.exe
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\Activador.pdb
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\Activador.mClientes.FrmClientes.resources
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\bin\Debug\Activador.exe.config
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\Activador.mSistemas.FrmSistemas.resources
+C:\Users\Jorge\Bioxor\Escritorio\Activador\Activador\obj\x86\Debug\Activador.mActivadorSeriales.FrmActivadorSeriales.resources

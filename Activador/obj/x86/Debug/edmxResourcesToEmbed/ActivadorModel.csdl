@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SistemasBioxorModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="SistemasBioxorModel.Cliente" />
+    <EntitySet Name="ClienteSistema" EntityType="SistemasBioxorModel.ClienteSistema" />
+    <EntitySet Name="cMunicipio" EntityType="SistemasBioxorModel.cMunicipio" />
+    <EntitySet Name="dEstado" EntityType="SistemasBioxorModel.dEstado" />
+    <EntitySet Name="Domicilio" EntityType="SistemasBioxorModel.Domicilio" />
+    <EntitySet Name="Sistema" EntityType="SistemasBioxorModel.Sistema" />
+    <AssociationSet Name="FK_cMunicipio_dEstado" Association="SistemasBioxorModel.FK_cMunicipio_dEstado">
+      <End Role="dEstado" EntitySet="dEstado" />
+      <End Role="cMunicipio" EntitySet="cMunicipio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Domicilio" Association="SistemasBioxorModel.FK_Cliente_Domicilio">
+      <End Role="Domicilio" EntitySet="Domicilio" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClienteSistema_Cliente" Association="SistemasBioxorModel.FK_ClienteSistema_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="ClienteSistema" EntitySet="ClienteSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClienteSistema_Sistema" Association="SistemasBioxorModel.FK_ClienteSistema_Sistema">
+      <End Role="Sistema" EntitySet="Sistema" />
+      <End Role="ClienteSistema" EntitySet="ClienteSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Domicilio_cMunicipio" Association="SistemasBioxorModel.FK_Domicilio_cMunicipio">
+      <End Role="cMunicipio" EntitySet="cMunicipio" />
+      <End Role="Domicilio" EntitySet="Domicilio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Domicilio_dEstado" Association="SistemasBioxorModel.FK_Domicilio_dEstado">
+      <End Role="dEstado" EntitySet="dEstado" />
+      <End Role="Domicilio" EntitySet="Domicilio" />
+    </AssociationSet>
+    <EntitySet Name="cEstado" EntityType="SistemasBioxorModel.cEstado" />
+    <AssociationSet Name="FK_Cliente_cEstado" Association="SistemasBioxorModel.FK_Cliente_cEstado">
+      <End Role="cEstado" EntitySet="cEstado" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClienteSistema_cEstado" Association="SistemasBioxorModel.FK_ClienteSistema_cEstado">
+      <End Role="cEstado" EntitySet="cEstado" />
+      <End Role="ClienteSistema" EntitySet="ClienteSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sistema_cEstado" Association="SistemasBioxorModel.FK_Sistema_cEstado">
+      <End Role="cEstado" EntitySet="cEstado" />
+      <End Role="Sistema" EntitySet="Sistema" />
+    </AssociationSet>
+    <EntitySet Name="vwClienteSistema" EntityType="SistemasBioxorModel.vwClienteSistema" />
+  </EntityContainer>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="idDomicilio" Type="Int32" Nullable="false" />
+    <Property Name="NombreCliente" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApellidoCliente" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Celular" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Domicilio" Relationship="SistemasBioxorModel.FK_Cliente_Domicilio" FromRole="Cliente" ToRole="Domicilio" />
+    <NavigationProperty Name="ClienteSistema" Relationship="SistemasBioxorModel.FK_ClienteSistema_Cliente" FromRole="Cliente" ToRole="ClienteSistema" />
+    <Property Type="Int32" Name="idEstado" Nullable="false" />
+    <NavigationProperty Name="cEstado" Relationship="SistemasBioxorModel.FK_Cliente_cEstado" FromRole="Cliente" ToRole="cEstado" />
+  </EntityType>
+  <EntityType Name="ClienteSistema">
+    <Key>
+      <PropertyRef Name="idClienteSistema" />
+    </Key>
+    <Property Name="idClienteSistema" Type="Int32" Nullable="false" />
+    <Property Name="idSistema" Type="Int32" Nullable="false" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="NumeroSerie" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MACAdress" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FechaPeticion" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="SistemasBioxorModel.FK_ClienteSistema_Cliente" FromRole="ClienteSistema" ToRole="Cliente" />
+    <NavigationProperty Name="Sistema" Relationship="SistemasBioxorModel.FK_ClienteSistema_Sistema" FromRole="ClienteSistema" ToRole="Sistema" />
+    <Property Type="Int32" Name="idEstado" Nullable="false" />
+    <NavigationProperty Name="cEstado" Relationship="SistemasBioxorModel.FK_ClienteSistema_cEstado" FromRole="ClienteSistema" ToRole="cEstado" />
+  </EntityType>
+  <EntityType Name="cMunicipio">
+    <Key>
+      <PropertyRef Name="idcMunicipio" />
+    </Key>
+    <Property Name="idcMunicipio" Type="Int32" Nullable="false" />
+    <Property Name="iddEstado" Type="Int32" Nullable="false" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="Municipio" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="CabeceraMunicipal" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="dEstado" Relationship="SistemasBioxorModel.FK_cMunicipio_dEstado" FromRole="cMunicipio" ToRole="dEstado" />
+    <NavigationProperty Name="Domicilio" Relationship="SistemasBioxorModel.FK_Domicilio_cMunicipio" FromRole="cMunicipio" ToRole="Domicilio" />
+  </EntityType>
+  <EntityType Name="dEstado">
+    <Key>
+      <PropertyRef Name="iddEstado" />
+    </Key>
+    <Property Name="iddEstado" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Pais" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="Valor" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="cMunicipio" Relationship="SistemasBioxorModel.FK_cMunicipio_dEstado" FromRole="dEstado" ToRole="cMunicipio" />
+    <NavigationProperty Name="Domicilio" Relationship="SistemasBioxorModel.FK_Domicilio_dEstado" FromRole="dEstado" ToRole="Domicilio" />
+  </EntityType>
+  <EntityType Name="Domicilio">
+    <Key>
+      <PropertyRef Name="idDomicilio" />
+    </Key>
+    <Property Name="idDomicilio" Type="Int32" Nullable="false" />
+    <Property Name="Calle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Colonia" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NoInterior" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="NoExterior" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="CodigoPostal" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Referencia" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Localidad" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Pais" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="idMunicipio" Nullable="false" />
+    <Property Type="Int32" Name="idEstado" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="SistemasBioxorModel.FK_Cliente_Domicilio" FromRole="Domicilio" ToRole="Cliente" />
+    <NavigationProperty Name="cMunicipio" Relationship="SistemasBioxorModel.FK_Domicilio_cMunicipio" FromRole="Domicilio" ToRole="cMunicipio" />
+    <NavigationProperty Name="dEstado" Relationship="SistemasBioxorModel.FK_Domicilio_dEstado" FromRole="Domicilio" ToRole="dEstado" />
+  </EntityType>
+  <EntityType Name="Sistema">
+    <Key>
+      <PropertyRef Name="idSistema" />
+    </Key>
+    <Property Name="idSistema" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Version" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ClienteSistema" Relationship="SistemasBioxorModel.FK_ClienteSistema_Sistema" FromRole="Sistema" ToRole="ClienteSistema" />
+    <Property Type="Int32" Name="idEstado" Nullable="false" />
+    <NavigationProperty Name="cEstado" Relationship="SistemasBioxorModel.FK_Sistema_cEstado" FromRole="Sistema" ToRole="cEstado" />
+  </EntityType>
+  <Association Name="FK_cMunicipio_dEstado">
+    <End Role="dEstado" Type="SistemasBioxorModel.dEstado" Multiplicity="1" />
+    <End Role="cMunicipio" Type="SistemasBioxorModel.cMunicipio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dEstado">
+        <PropertyRef Name="iddEstado" />
+      </Principal>
+      <Dependent Role="cMunicipio">
+        <PropertyRef Name="iddEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Domicilio">
+    <End Type="SistemasBioxorModel.Domicilio" Role="Domicilio" Multiplicity="1" />
+    <End Type="SistemasBioxorModel.Cliente" Role="Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Domicilio">
+        <PropertyRef Name="idDomicilio" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="idDomicilio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClienteSistema_Cliente">
+    <End Type="SistemasBioxorModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="SistemasBioxorModel.ClienteSistema" Role="ClienteSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="ClienteSistema">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClienteSistema_Sistema">
+    <End Type="SistemasBioxorModel.Sistema" Role="Sistema" Multiplicity="1" />
+    <End Type="SistemasBioxorModel.ClienteSistema" Role="ClienteSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistema">
+        <PropertyRef Name="idSistema" />
+      </Principal>
+      <Dependent Role="ClienteSistema">
+        <PropertyRef Name="idSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Domicilio_cMunicipio">
+    <End Type="SistemasBioxorModel.cMunicipio" Role="cMunicipio" Multiplicity="1" />
+    <End Type="SistemasBioxorModel.Domicilio" Role="Domicilio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cMunicipio">
+        <PropertyRef Name="idcMunicipio" />
+      </Principal>
+      <Dependent Role="Domicilio">
+        <PropertyRef Name="idMunicipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Domicilio_dEstado">
+    <End Type="SistemasBioxorModel.dEstado" Role="dEstado" Multiplicity="1" />
+    <End Type="SistemasBioxorModel.Domicilio" Role="Domicilio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dEstado">
+        <PropertyRef Name="iddEstado" />
+      </Principal>
+      <Dependent Role="Domicilio">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="cEstado">
+    <Key>
+      <PropertyRef Name="idcEstado" />
+    </Key>
+    <Property Type="Int32" Name="idcEstado" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cliente" Relationship="SistemasBioxorModel.FK_Cliente_cEstado" FromRole="cEstado" ToRole="Cliente" />
+    <NavigationProperty Name="ClienteSistema" Relationship="SistemasBioxorModel.FK_ClienteSistema_cEstado" FromRole="cEstado" ToRole="ClienteSistema" />
+    <NavigationProperty Name="Sistema" Relationship="SistemasBioxorModel.FK_Sistema_cEstado" FromRole="cEstado" ToRole="Sistema" />
+  </EntityType>
+  <Association Name="FK_Cliente_cEstado">
+    <End Type="SistemasBioxorModel.cEstado" Role="cEstado" Multiplicity="1" />
+    <End Type="SistemasBioxorModel.Cliente" Role="Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cEstado">
+        <PropertyRef Name="idcEstado" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClienteSistema_cEstado">
+    <End Type="SistemasBioxorModel.cEstado" Role="cEstado" Multiplicity="1" />
+    <End Type="SistemasBioxorModel.ClienteSistema" Role="ClienteSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cEstado">
+        <PropertyRef Name="idcEstado" />
+      </Principal>
+      <Dependent Role="ClienteSistema">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sistema_cEstado">
+    <End Type="SistemasBioxorModel.cEstado" Role="cEstado" Multiplicity="1" />
+    <End Type="SistemasBioxorModel.Sistema" Role="Sistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cEstado">
+        <PropertyRef Name="idcEstado" />
+      </Principal>
+      <Dependent Role="Sistema">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vwClienteSistema">
+    <Key>
+      <PropertyRef Name="EstadoClienteSistema" />
+      <PropertyRef Name="EstadoSistema" />
+      <PropertyRef Name="EstadoCliente" />
+      <PropertyRef Name="idSistema" />
+      <PropertyRef Name="idEstadoSistema" />
+      <PropertyRef Name="NombreSistema" />
+      <PropertyRef Name="Version" />
+      <PropertyRef Name="idCliente" />
+      <PropertyRef Name="idEstadoCliente" />
+      <PropertyRef Name="NombreCliente" />
+      <PropertyRef Name="ApellidoCliente" />
+      <PropertyRef Name="Telefono" />
+      <PropertyRef Name="Celular" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="idClienteSistema" />
+      <PropertyRef Name="idEstadoClienteSistema" />
+      <PropertyRef Name="NumeroSerie" />
+      <PropertyRef Name="MACAdress" />
+      <PropertyRef Name="FechaPeticion" />
+    </Key>
+    <Property Type="String" Name="EstadoClienteSistema" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EstadoSistema" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EstadoCliente" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="idSistema" Nullable="false" />
+    <Property Type="Int32" Name="idEstadoSistema" Nullable="false" />
+    <Property Type="String" Name="NombreSistema" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Version" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="idCliente" Nullable="false" />
+    <Property Type="Int32" Name="idEstadoCliente" Nullable="false" />
+    <Property Type="String" Name="NombreCliente" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ApellidoCliente" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telefono" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Celular" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="idClienteSistema" Nullable="false" />
+    <Property Type="Int32" Name="idEstadoClienteSistema" Nullable="false" />
+    <Property Type="String" Name="NumeroSerie" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MACAdress" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="FechaPeticion" Nullable="false" />
+  </EntityType>
+</Schema>
